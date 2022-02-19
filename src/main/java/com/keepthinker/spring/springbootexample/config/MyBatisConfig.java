@@ -4,7 +4,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-//@EnableTransactionManagement
-@MapperScan({"com.keepthinker.spring.springbootexample.dao"})
+@MapperScan({"com.keepthinker.spring.springbootexample.mapper"})
 public class MyBatisConfig {
 }
