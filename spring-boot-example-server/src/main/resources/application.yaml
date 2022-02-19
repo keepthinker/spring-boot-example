@@ -10,6 +10,9 @@ mybatis:
   mapper-locations: classpath:/mapping/*.xml
 
 chatrobot:
-  type: "adorable"
+  usePrefix: true
+  # type default value defined in ConfigCenterHandler
+#  type: adorable
+
 
 

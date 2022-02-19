@@ -11,11 +11,24 @@ public class ChatRobotProperties {
      */
     private String type;
 
+    /**
+     * process() return with "chat robot:" prefix
+     */
+    private boolean usePrefix;
+
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public boolean isUsePrefix() {
+        return usePrefix;
+    }
+
+    public void setUsePrefix(boolean usePrefix) {
+        this.usePrefix = usePrefix;
     }
 }

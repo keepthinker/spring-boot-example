@@ -23,7 +23,7 @@ public class ChatRobot implements InitializingBean, ChatRobotService {
 
     @Override
     public void afterPropertiesSet() {
-        logger.info("use chat robot service|type:{}", chatRobotProperties.getType());
+        logger.info("use chat robot service|type:{}|usePrefix:{}", chatRobotProperties.getType(), chatRobotProperties.isUsePrefix());
         if (chatRobotProperties.getType().equals("adorable")) {
             chatRobotService = new AdorableChatRobot();
         } else if (chatRobotProperties.getType().equals("unfriendly")) {
@@ -33,10 +33,23 @@ public class ChatRobot implements InitializingBean, ChatRobotService {
         }
     }
 
-    private static class AdorableChatRobot implements ChatRobotProcess {
-
+    private abstract class AbstractChatRobot implements ChatRobotProcess {
         @Override
         public String process(String input) {
+            if (chatRobotProperties.isUsePrefix()) {
+                return "chat bot: "+ doProcess(input);
+            } else {
+                return doProcess(input);
+            }
+        }
+
+        abstract String doProcess(String input);
+
+    }
+
+    private class AdorableChatRobot extends AbstractChatRobot {
+
+        public String doProcess(String input) {
             input = input.toLowerCase();
             if (input.contains("help")) {
                 return "No problem!";
@@ -50,10 +63,10 @@ public class ChatRobot implements InitializingBean, ChatRobotService {
         }
     }
 
-    private static class UnfriendlyChatRobot implements ChatRobotProcess {
+    private class UnfriendlyChatRobot extends AbstractChatRobot {
 
         @Override
-        public String process(String input) {
+        public String doProcess(String input) {
             input = input.toLowerCase();
             if (input.contains("help")) {
                 return "Sorry!";
