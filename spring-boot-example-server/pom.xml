@@ -7,7 +7,6 @@
         <groupId>com.keepthinker.spring</groupId>
         <artifactId>springbootexample-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-
     </parent>
     <artifactId>springbootexample</artifactId>
     <dependencies>
