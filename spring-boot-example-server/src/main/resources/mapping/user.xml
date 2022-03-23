@@ -8,7 +8,25 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
     </resultMap>
 
-    <select id="findAll" resultMap="userMap">
-        SELECT * FROM user
+    <select id="getUsers" resultMap="userMap">
+        SELECT * FROM user limit #{begin}, #{size}
     </select>
+
+    <insert id="insert">
+        insert into user(name, age) values(#{name}, #{age})
+    </insert>
+
+    <insert id="insertBatch">
+        insert into user(name, age) values
+        <foreach collection="users" item="user" separator=",">(#{user.name}, #{user.age})</foreach>
+    </insert>
+
+    <update id="update">
+        update user set age = age <if test="name != null">, name = #{name}</if> <if test="age > 0">, age = #{age}</if> where id = #{id}
+    </update>
+
+    <select id="count" resultType="int">
+        select count(*) from user
+    </select>
+
 </mapper>

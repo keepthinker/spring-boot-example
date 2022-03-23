@@ -14,6 +14,10 @@ import java.util.concurrent.TimeUnit;
 public class RedisServiceImpl implements RedisService {
     public static final String KEY_USERS = "users";
 
+    private String usersKey(int page, int size){
+        return "users" + ":" + page + ":" + size;
+    }
+
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
@@ -24,8 +28,8 @@ public class RedisServiceImpl implements RedisService {
     }
 
     @Override
-    public List<User> getUsers() {
-        String value = redisTemplate.opsForValue().get(KEY_USERS);
+    public List<User> getUsers(int page, int size) {
+        String value = redisTemplate.opsForValue().get(usersKey(page, size));
         if (value == null) {
             return null;
         }

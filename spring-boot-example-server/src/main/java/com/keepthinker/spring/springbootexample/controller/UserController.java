@@ -5,8 +5,7 @@ import com.keepthinker.spring.springbootexample.service.ChatRobotService;
 import com.keepthinker.spring.springbootexample.service.UserService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,13 +19,22 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/users")
-    public List<User> getAllUsers(){
-        return userService.getAllUsers();
+    public List<User> getAllUsers(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return userService.getUsers(page, size);
     }
 
     @RequestMapping("/talk")
-    public String chatRootTalk(@Param("message") String message){
+    public String chatRootTalk(@Param("message") String message) {
         return chatRobotService.reply(message);
     }
 
+    @RequestMapping(path = "/users/create-batch", method = RequestMethod.POST)
+    public void createUsers(@RequestParam int size) {
+        userService.createUsers(size);
+    }
+
+    @RequestMapping(path = "/users/update-batch", method = RequestMethod.POST)
+    public void createUsers() {
+        userService.updateUsers();
+    }
 }

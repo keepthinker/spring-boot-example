@@ -1,0 +1,1 @@
+dubbo-invoker-filter=com.keepthinker.spring.springbootexample.dubbo.DubboInvokeFilter

@@ -11,5 +11,5 @@ public interface RedisService {
      */
     void setUsers(List<User> users);
 
-    List<User> getUsers();
+    List<User> getUsers(int page, int size);
 }

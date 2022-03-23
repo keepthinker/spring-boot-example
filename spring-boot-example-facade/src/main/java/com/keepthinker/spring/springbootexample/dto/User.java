@@ -1,6 +1,8 @@
 package com.keepthinker.spring.springbootexample.dto;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Integer id;
     private String name;
     private Integer age;

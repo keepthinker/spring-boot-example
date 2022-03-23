@@ -9,8 +9,12 @@ import org.springframework.core.env.PropertiesPropertySource;
 
 import java.util.Properties;
 
-public class ConfigCenterHandler implements ApplicationListener<ApplicationEnvironmentPreparedEvent> {
-  private final Logger logger = LoggerFactory.getLogger(ConfigCenterHandler.class);
+/**
+ * 在classpath:META-INF/spring.properties中绑定到SpringBoot，仿照java中的SPI扩展机制实现的。
+ * SpringBoot在创建ApplicationContext之前，会先调用prepareEnvironment方法准备创建容器所需要的环境信息，即创建Environment，并加载配置到Environment。
+ */
+public class ConfigCenterDefaultValueHandler implements ApplicationListener<ApplicationEnvironmentPreparedEvent> {
+  private final Logger logger = LoggerFactory.getLogger(ConfigCenterDefaultValueHandler.class);
   private static final String CHAT_ROBOT_TYPE = "chatrobot.type";
   private static final String CHAT_ROBOT_DEFAULT_TYPE = "adorable";
 

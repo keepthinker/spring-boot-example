@@ -7,6 +7,7 @@ import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,8 +21,8 @@ public class UserController {
     private UserFacade userService;
 
     @RequestMapping("/users")
-    public List<User> getAllUsers(){
-        List<User> users = userService.getAllUsers();
+    public List<User> getAllUsers(@RequestParam("page") int page, @RequestParam("size") int size){
+        List<User> users = userService.getUsers(page, size);
         logger.info("result from dubbo server:{}", JsonUtils.objectToString(users));
         return users;
     }

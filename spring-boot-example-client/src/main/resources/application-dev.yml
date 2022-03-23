@@ -16,3 +16,5 @@ dubbo:
   protocol:
     # 协议名称
     name: dubbo
+  consumer:
+    filter: dubbo-invoker-filter

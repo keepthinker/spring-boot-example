@@ -14,7 +14,7 @@ public class UserFacadeImpl implements UserFacade {
     @Autowired
     private UserService userService;
     @Override
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public List<User> getUsers(int page, int size) {
+        return userService.getUsers(page, size);
     }
 }
