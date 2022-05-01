@@ -18,3 +18,8 @@ dubbo:
     name: dubbo
   consumer:
     filter: dubbo-invoker-filter
+
+eureka:
+  client:
+    serviceURL:
+      defaultZone: http://localhost:8900/eureka

@@ -31,3 +31,8 @@ dubbo:
     name: dubbo
     # 协议端口
     port: 20880
+
+eureka:
+  client:
+    serviceURL:
+      defaultZone: http://localhost:8900/eureka
