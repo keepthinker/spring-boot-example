@@ -17,7 +17,9 @@ public class EurekaController {
         return eurekaConsumer.getServices();
     }
 
-    // serviceId is "Application" of "Instances currently registered with Eureka" in eureka dashboard
+    /**
+     * serviceId is "Application" of "Instances currently registered with Eureka" in eureka dashboard
+     */
     @RequestMapping("/eureka/service_instances/{serviceId}")
     public Object getInstance(@PathVariable("serviceId") String serviceId){
         return eurekaConsumer.getInstances(serviceId);
