@@ -1,5 +1,7 @@
 package com.keepthinker.spring.springbootexample.config;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
+import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +18,9 @@ public class ChatRobotProperties {
      */
     private boolean usePrefix;
 
+    @NacosValue(value = "${chatRobotName:chat-robot}", autoRefreshed = true)
+    private String name;
+
     public String getType() {
         return type;
     }
@@ -30,5 +35,9 @@ public class ChatRobotProperties {
 
     public void setUsePrefix(boolean usePrefix) {
         this.usePrefix = usePrefix;
+    }
+
+    public String getName() {
+        return name;
     }
 }

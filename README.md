@@ -31,8 +31,8 @@ CREATE TABLE `account` (
 
 1. finish configuration of redis, zookeeper and mysql
 2. mvn package -Dmaven.test.skip
-3. java -jar spring-cloud-eureka-server-1.0-SNAPSHOT.jar
-4. java -jar  -Dserver.port=9090 -Ddubbo.protocol.port=20880 springbootexample-server-1.0-SNAPSHOT.jar
-5. java -jar  -Dserver.port=9091 -Ddubbo.protocol.port=20881  springbootexample-server-1.0-SNAPSHOT.jar
+3. java -jar -Xmx128m spring-cloud-eureka-server-1.0-SNAPSHOT.jar
+4. java -jar -Xmx128m -Dserver.port=19090 -Ddubbo.protocol.port=20880 springbootexample-server-1.0-SNAPSHOT.jar
+5. java -jar -Xmx128m -Dserver.port=19091 -Ddubbo.protocol.port=20881  springbootexample-server-1.0-SNAPSHOT.jar
 6. eureka: http://localhost:8900/
 7. http: http://localhost:18080/users?page=3&size=10&routingKey=dubbo

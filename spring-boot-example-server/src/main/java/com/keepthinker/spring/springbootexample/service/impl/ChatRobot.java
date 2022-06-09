@@ -22,6 +22,11 @@ public class ChatRobot implements InitializingBean, ChatRobotService {
     }
 
     @Override
+    public String name() {
+        return chatRobotProperties.getName();
+    }
+
+    @Override
     public void afterPropertiesSet() {
         logger.info("use chat robot service|type:{}|usePrefix:{}", chatRobotProperties.getType(), chatRobotProperties.isUsePrefix());
         if (chatRobotProperties.getType().equals("adorable")) {

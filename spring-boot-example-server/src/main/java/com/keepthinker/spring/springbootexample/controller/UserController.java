@@ -37,4 +37,9 @@ public class UserController {
     public void createUsers() {
         userService.updateUsers();
     }
+
+    @RequestMapping(path = "/chat-robot/name", method = RequestMethod.GET)
+    public String getChatRootName() {
+        return chatRobotService.name();
+    }
 }
