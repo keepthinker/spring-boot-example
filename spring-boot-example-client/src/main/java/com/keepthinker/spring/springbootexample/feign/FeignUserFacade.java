@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@LoadBalancerClient(name = "SPRING-BOOT-EXAMPLE-SERVER",
-        configuration= LoadBalancerConfiguration.class)
-@FeignClient(name = "SPRING-BOOT-EXAMPLE-SERVER")
+//@LoadBalancerClient(name = "SPRING-BOOT-EXAMPLE-SERVER",
+//        configuration= LoadBalancerConfiguration.class)
+//@FeignClient(name = "SPRING-BOOT-EXAMPLE-SERVER")
+//@LoadBalancerClient(name = "spring-boot-example-server",
+//        configuration= LoadBalancerConfiguration.class)
+@FeignClient(name = "spring-boot-example-server")
 public interface FeignUserFacade {
-   @RequestMapping(value = "/users", method = RequestMethod.GET)
+   @RequestMapping(value = "/users", method = RequestMethod.GET, consumes = "application/json;charset=utf-8")
    List<User> getUsers(@RequestParam("page") int page, @RequestParam("size") int size);
 }

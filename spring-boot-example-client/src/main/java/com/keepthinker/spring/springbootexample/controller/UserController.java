@@ -3,6 +3,7 @@ package com.keepthinker.spring.springbootexample.controller;
 import com.keepthinker.spring.springbootexample.dubbo.UserFacade;
 import com.keepthinker.spring.springbootexample.dto.User;
 import com.keepthinker.spring.springbootexample.feign.FeignUserFacade;
+import com.keepthinker.spring.springbootexample.service.ExampleServerService;
 import com.keepthinker.spring.springbootexample.utils.JsonUtils;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.Logger;
@@ -25,13 +26,18 @@ public class UserController {
     @Autowired
     private FeignUserFacade feignUserFacade;
 
+    @Autowired
+    private ExampleServerService exampleServerService;
+
 
     @RequestMapping("/users")
     public List<User> getAllUsers(@RequestParam("page") int page, @RequestParam("size") int size, @RequestParam(name = "routingKey", defaultValue = "dubbo") String routingKey){
-        List<User> users;
+        List<User> users = null;
         if ("dubbo".equals(routingKey)) {
             users = userService.getUsers(page, size);
-        } else {
+        } else if("nacos".equals(routingKey)){
+            users = exampleServerService.getUsers(page, size);
+        } else if ("feign".equals(routingKey)) {
             users = feignUserFacade.getUsers(page, size);
         }
         logger.info("result from dubbo server:{}", JsonUtils.objectToString(users));

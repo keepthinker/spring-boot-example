@@ -10,6 +10,10 @@ spring:
     port: 6379
     password:
     timeout: 300ms # 连接超时时间（毫秒）
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.31.20:8848
 
 logging:
   level:

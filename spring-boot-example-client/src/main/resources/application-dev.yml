@@ -26,3 +26,9 @@ eureka:
 
 spring-cloud:
   load-balance-type: random
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.31.20:8848
