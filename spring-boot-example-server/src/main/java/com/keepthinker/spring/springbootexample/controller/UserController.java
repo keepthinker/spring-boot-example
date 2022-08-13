@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @RequestMapping("/talk")
-    public String chatRootTalk(@Param("message") String message) {
+    public String chatRootTalk(@RequestParam("message") String message) {
         return chatRobotService.reply(message);
     }
 

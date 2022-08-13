@@ -6,7 +6,7 @@ import com.keepthinker.spring.springbootexample.service.RedisService;
 import com.keepthinker.spring.springbootexample.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,19 +17,20 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RedisService redisService;
-    @Autowired
+//    @Autowired
     private UserMapper userMapper;
 
     public List<User> getUsers(int page, int size) {
-        List<User> users = redisService.getUsers(page, size);
-        if (users == null) {
-            users = userMapper.getUsers((page - 1) * size, size);
-            redisService.setUsers(users);
-        }
-        return users;
+//        List<User> users = redisService.getUsers(page, size);
+//        if (users == null) {
+//            users = userMapper.getUsers((page - 1) * size, size);
+//            redisService.setUsers(users);
+//        }
+//        return users;
+        return null;
     }
 
-    @Transactional
+//    @Transactional
     @Override
     public void createUsers(int size) {
         ThreadLocalRandom random = ThreadLocalRandom.current();
@@ -59,7 +60,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    @Transactional
+//    @Transactional
     @Override
     public void updateUsers() {
         int size = userMapper.count();
