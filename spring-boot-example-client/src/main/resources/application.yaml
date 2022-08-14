@@ -1,8 +1,6 @@
 server:
   port: 18080
 spring:
-  application:
-    name: spring-boot-example-client
   profiles:
     active: dev #默认为开发环境
 

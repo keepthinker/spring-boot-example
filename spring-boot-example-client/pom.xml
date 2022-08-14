@@ -11,12 +11,20 @@
     </parent>
     <artifactId>springbootexample-client</artifactId>
 
-    <properties>
-        <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
-        <spring-cloud-netflix.version>2.2.10.RELEASE</spring-cloud-netflix.version>
-    </properties>
-
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.keepthinker.spring</groupId>
             <artifactId>springbootexample-facade</artifactId>

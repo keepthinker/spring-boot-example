@@ -20,7 +20,7 @@ import java.util.List;
 public class UserController {
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @DubboReference
+    @DubboReference(group = "dev", version = "1.0")
     private UserFacade userService;
 
     @Autowired

@@ -9,10 +9,7 @@ dubbo:
     name: user-consumer
   # 注册中心信息
   registry:
-    address: zookeeper://192.168.1.9:2181
-  scan:
-    # 接口实现者（服务实现）包
-    base-packages: com.keepthinker.spring.springbootexample.dubbo
+    address: nacos://192.168.1.9:8848
   protocol:
     # 协议名称
     name: dubbo
@@ -23,6 +20,4 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.1.9:8848
-      config:
         server-addr: 192.168.1.9:8848
