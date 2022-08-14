@@ -16,7 +16,7 @@ spring:
         server-addr: 192.168.1.9:8848
       config:
         server-addr: 192.168.1.9:8848
-        
+
   data:
     mongodb:
       host: 192.168.1.9
@@ -28,7 +28,7 @@ spring:
 
 logging:
   level:
-    root: info
+    root: debug
     com.keepthinker.spring.springbootexample: debug
   pattern:
     console: "%d{yyyy-MM-dd hh:mm:ss} [%thread] %-5level %logger{100} - %msg%n"
@@ -50,11 +50,3 @@ dubbo:
     # 协议端口
 #    port: 20880
 
-#eureka:
-#  client:
-#    serviceURL:
-#      defaultZone: http://localhost:8900/eureka
-
-#nacos:
-#  config:
-#    server-addr: 192.168.1.9:8848

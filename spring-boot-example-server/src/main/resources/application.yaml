@@ -1,10 +1,10 @@
 #server:
 #  port: 9090
-spring:
-  application:
-    name: spring-boot-example-server
-  profiles:
-    active: dev #默认为开发环境
+#spring:
+#  application:
+#    name: spring-boot-example-server
+#  profiles:
+#    active: dev #默认为开发环境
 
 mybatis:
   mapper-locations: classpath:/mapping/*.xml
@@ -14,5 +14,13 @@ chatrobot:
   # type default value defined in ConfigCenterHandler
 #  type: adorable
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
 
 

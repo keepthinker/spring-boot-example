@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@DubboService
+@DubboService(group = "dev", version = "1.0")
 public class UserFacadeImpl implements UserFacade {
 
     @Autowired

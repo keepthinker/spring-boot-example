@@ -7,22 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class EurekaController {
+public class DiscoveryController {
 
     @Autowired
-    private DiscoveryClient eurekaConsumer;
+    private DiscoveryClient discoveryConsumer;
 
-    @RequestMapping("/eureka/service_instances")
+    @RequestMapping("/discovery/service_instances")
     public Object getServices(){
-        return eurekaConsumer.getServices();
+        return discoveryConsumer.getServices();
     }
 
-    /**
-     * serviceId is "Application" of "Instances currently registered with Eureka" in eureka dashboard
-     */
-    @RequestMapping("/eureka/service_instances/{serviceId}")
+    @RequestMapping("/discovery/service_instances/{serviceId}")
     public Object getInstance(@PathVariable("serviceId") String serviceId){
-        return eurekaConsumer.getInstances(serviceId);
+        return discoveryConsumer.getInstances(serviceId);
     }
 
 }
