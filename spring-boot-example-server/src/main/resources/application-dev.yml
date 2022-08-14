@@ -25,7 +25,6 @@ spring:
       username: learner
       password: study
 
-
 logging:
   level:
     root: debug

@@ -5,8 +5,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Country {
     private String name;
-    private Integer populatioin;
-    private String Continent;
+    private Long population;
+    private String continent;
 
     public String getName() {
         return name;
@@ -16,19 +16,19 @@ public class Country {
         this.name = name;
     }
 
-    public Integer getPopulatioin() {
-        return populatioin;
+    public Long getPopulation() {
+        return population;
     }
 
-    public void setPopulatioin(Integer populatioin) {
-        this.populatioin = populatioin;
+    public void setPopulation(Long population) {
+        this.population = population;
     }
 
     public String getContinent() {
-        return Continent;
+        return continent;
     }
 
     public void setContinent(String continent) {
-        Continent = continent;
+        this.continent = continent;
     }
 }
