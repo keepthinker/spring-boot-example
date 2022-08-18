@@ -2,11 +2,14 @@ package com.keepthinker.spring.springbootexample.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document
 public class Country {
     private String name;
     private Long population;
     private String continent;
+    private Date establishedDate;
 
     public String getName() {
         return name;
@@ -30,5 +33,13 @@ public class Country {
 
     public void setContinent(String continent) {
         this.continent = continent;
+    }
+
+    public Date getEstablishedDate() {
+        return establishedDate;
+    }
+
+    public void setEstablishedDate(Date establishedDate) {
+        this.establishedDate = establishedDate;
     }
 }
