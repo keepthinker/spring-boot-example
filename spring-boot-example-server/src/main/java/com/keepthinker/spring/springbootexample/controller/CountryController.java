@@ -1,6 +1,6 @@
 package com.keepthinker.spring.springbootexample.controller;
 
-import com.keepthinker.spring.springbootexample.entity.Country;
+import com.keepthinker.spring.springbootexample.entity.Area;
 import com.keepthinker.spring.springbootexample.mongo.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ public class CountryController {
     private CountryRepository countryService;
 
     @RequestMapping("/contries")
-    public List<Country> getAllCountries() {
+    public List<Area> getAllCountries() {
         return countryService.findAll();
     }
 }

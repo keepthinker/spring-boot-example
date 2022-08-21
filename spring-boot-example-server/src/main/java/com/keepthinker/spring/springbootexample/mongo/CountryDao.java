@@ -1,12 +1,15 @@
 package com.keepthinker.spring.springbootexample.mongo;
 
-import com.keepthinker.spring.springbootexample.entity.Country;
+import com.keepthinker.spring.springbootexample.entity.ContinentCountryPopulation;
+import com.keepthinker.spring.springbootexample.entity.Area;
 
 import java.util.Date;
 import java.util.List;
 
 public interface CountryDao {
-    void save(Country country);
-    void deleteByName(String name);
-    List<Country> listAfterEstablishedTime(Date date);
+    void save(Area country);
+    void deleteByCountry(String country);
+    List<Area> listAfterEstablishedTime(Date date, int limitSize);
+    List<ContinentCountryPopulation> listContinentCountryPopulation();
+
 }
