@@ -1,13 +1,18 @@
 package com.keepthinker.spring.springbootexample.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
+@TableName("area")
 @Document("area")
 public class Area {
+    @TableId
     @Id
     private Integer id;
     private String continent;
@@ -15,6 +20,7 @@ public class Area {
     private String country;
     private String province;
     private Long population;
+    @TableField("established_date")
     private Date establishedDate;
 
     public Integer getId() {

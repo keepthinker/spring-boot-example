@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
-public interface CountryRepository extends MongoRepository<Area, Integer> {
+public interface AreaRepository extends MongoRepository<Area, Integer> {
 
     void deleteByCountry(String Country);
 

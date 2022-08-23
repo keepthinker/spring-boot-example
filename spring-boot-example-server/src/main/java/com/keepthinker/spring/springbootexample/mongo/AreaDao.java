@@ -6,7 +6,7 @@ import com.keepthinker.spring.springbootexample.entity.Area;
 import java.util.Date;
 import java.util.List;
 
-public interface CountryDao {
+public interface AreaDao {
     void save(Area country);
     void deleteByCountry(String country);
     List<Area> listAfterEstablishedTime(Date date, int limitSize);

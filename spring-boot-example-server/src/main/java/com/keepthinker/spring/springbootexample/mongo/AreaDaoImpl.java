@@ -17,30 +17,30 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Repository
-public class CountryDaoImpl implements CountryDao{
+public class AreaDaoImpl implements AreaDao {
 
-    private CountryRepository countryRepository;
+    private AreaRepository areaRepository;
     private MongoTemplate mongoTemplate;
 
     @Autowired
-    public CountryDaoImpl(CountryRepository countryRepository, MongoTemplate mongoTemplate) {
-        this.countryRepository = countryRepository;
+    public AreaDaoImpl(AreaRepository areaRepository, MongoTemplate mongoTemplate) {
+        this.areaRepository = areaRepository;
         this.mongoTemplate = mongoTemplate;
     }
 
     @Autowired
-    public void setCountryRepository(CountryRepository countryRepository) {
-        this.countryRepository = countryRepository;
+    public void setAreaRepository(AreaRepository areaRepository) {
+        this.areaRepository = areaRepository;
     }
 
     @Override
     public void save(Area country) {
-        countryRepository.save(country);
+        areaRepository.save(country);
     }
 
     @Override
     public void deleteByCountry(String country) {
-        countryRepository.deleteByCountry(country);
+        areaRepository.deleteByCountry(country);
     }
 
     @Override

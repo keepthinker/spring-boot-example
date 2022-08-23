@@ -30,6 +30,7 @@ logging:
   level:
     root: debug
     com.keepthinker.spring.springbootexample: debug
+    com.alibaba.nacos: info
   pattern:
     console: "%d{yyyy-MM-dd hh:mm:ss} [%thread] %-5level %logger{100} - %msg%n"
 

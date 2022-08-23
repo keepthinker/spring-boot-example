@@ -2,8 +2,8 @@ package com.keepthinker.spring.springbootexample.test;
 
 import com.keepthinker.spring.springbootexample.entity.ContinentCountryPopulation;
 import com.keepthinker.spring.springbootexample.entity.Area;
-import com.keepthinker.spring.springbootexample.mongo.CountryDao;
-import com.keepthinker.spring.springbootexample.mongo.CountryRepository;
+import com.keepthinker.spring.springbootexample.mongo.AreaDao;
+import com.keepthinker.spring.springbootexample.mongo.AreaRepository;
 import com.keepthinker.spring.springbootexample.mongo.IdGenerator;
 import com.keepthinker.spring.springbootexample.utils.DateUtils;
 import com.keepthinker.spring.springbootexample.utils.JsonUtils;
@@ -25,10 +25,10 @@ public class MongoTest {
     private static Logger logger = LoggerFactory.getLogger(MongoTest.class);
 
     @Autowired
-    private CountryRepository areaRepository;
+    private AreaRepository areaRepository;
 
     @Autowired
-    private CountryDao areaDao;
+    private AreaDao areaDao;
 
     @Autowired
     private IdGenerator idGenerator;
