@@ -1,5 +1,6 @@
 package com.keepthinker.spring.springbootexample.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -12,7 +13,7 @@ import java.util.Date;
 @TableName("area")
 @Document("area")
 public class Area {
-    @TableId
+    @TableId(type = IdType.AUTO)
     @Id
     private Integer id;
     private String continent;
