@@ -16,7 +16,7 @@ CREATE TABLE `user` (
   KEY `age` (`age`),
   KEY `idx_name_age` (`name`(6),`age`),
   KEY `idx_age_weight` (`age`,`weight`)
-) ENGINE=InnoDB AUTO_INCREMENT=1007766 DEFAULT CHARSET=utf8mb3
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `account` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -24,7 +24,17 @@ CREATE TABLE `account` (
   `balance` int NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `area` (
+    `id` int unsigned NOT NULL AUTO_INCREMENT,
+    `continent` varchar(64) NOT NULL,
+    `country` varchar(64) NOT NULL,
+    `province` varchar(64) NOT NULL,
+    `population` mediumtext NOT NULL,
+    `established_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 ```
 
 ### procedure

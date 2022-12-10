@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    url: jdbc:mysql://172.29.154.223:3306/learning?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: learner
+    password: study
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 172.29.154.223
+    database: 0
+    port: 6379
+    password:
+    timeout: 300ms # 连接超时时间（毫秒）
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.29.154.223:8848
+      config:
+        server-addr: 172.29.154.223:8848
+
+  data:
+    mongodb:
+      host: 172.29.154.223
+      port: 27017
+      database: test
+      username: learner
+      password: study
+      authentication-database: admin
+
+logging:
+  level:
+    root: debug
+    com.keepthinker.spring.springbootexample: debug
+    com.alibaba.nacos: info
+  pattern:
+    console: "%d{yyyy-MM-dd hh:mm:ss} [%thread] %-5level %logger{100} - %msg%n"
+
+dubbo:
+  application:
+    # 应用名称
+    name: user-provider
+  scan:
+    # 接口实现者（服务实现）包
+    base-packages: com.keepthinker.spring.springbootexample.dubbo
+  # 注册中心信息
+  registry:
+    address: nacos://172.29.154.223:8848
+  #    address: zookeeper://172.29.154.223:2181
+  protocol:
+    # 协议名称
+    name: dubbo
+    # 协议端口
+#    port: 20880
+
