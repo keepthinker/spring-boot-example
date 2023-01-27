@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.keepthinker.spring.springbootexample.entity.Area;
+import com.keepthinker.spring.springbootexample.entity.SysUser;
 import com.keepthinker.spring.springbootexample.mapper.AreaMapper;
+import com.keepthinker.spring.springbootexample.mapper.SysUserMapper;
 import com.keepthinker.spring.springbootexample.utils.JsonUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +27,8 @@ public class MybatisTest {
 
     @Autowired
     private AreaMapper areaMapper;
+    @Autowired
+    private SysUserMapper sysUserMapper;
 
     @Test
     public void testSelect(){
@@ -85,6 +89,16 @@ public class MybatisTest {
         area.setContinent("Asia");
         areaMapper.insert(area);
         System.out.println("save result: " + JsonUtils.objectToString(area));
+    }
+
+    @Test
+    public void testSaveSysUser() {
+        SysUser sysUser = new SysUser();
+        sysUser.setUsername("username");
+        sysUser.setPassword("password");
+        sysUser.setStatus(true);
+        sysUser.setPasswordNonExpired(true);
+        sysUserMapper.insert(sysUser);
     }
 
 }
