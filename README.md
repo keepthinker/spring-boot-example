@@ -31,10 +31,31 @@ CREATE TABLE `area` (
     `continent` varchar(64) NOT NULL,
     `country` varchar(64) NOT NULL,
     `province` varchar(64) NOT NULL,
-    `population` mediumtext NOT NULL,
+    `population` bigint NOT NULL,
     `established_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
+
+create table users
+(
+    `id`       int unsigned NOT NULL AUTO_INCREMENT,
+    `username` varchar(50)  not null,
+    `password` varchar(500) not null,
+    `enabled`  tinyint      not null,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+create table authorities
+(
+    `id`        int unsigned NOT NULL AUTO_INCREMENT,
+    `username`  varchar(50)  not null,
+    `authority` varchar(50)  not null,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+
 ```
 
 ### procedure
